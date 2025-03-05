@@ -4,7 +4,8 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        cells = 0
+        cells = 1
         for i in range(1, n + 1):
-            cells += i ** 2
+            added_cells = 4*(i-1)
+            cells = cells+added_cells
         return cells
