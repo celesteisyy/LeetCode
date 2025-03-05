@@ -4,5 +4,7 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        a = n**2 + (n-1)
-        return a
+        cells = 0
+        for i in range(1, n + 1):
+            cells += i ** 2
+        return cells
