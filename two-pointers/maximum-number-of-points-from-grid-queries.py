@@ -9,17 +9,15 @@ class Solution:
             count = 0
             bfs = deque([(0,0)])
             while bfs:
-                size = len(bfs)
-                for _ in range(size):
-                    current_m, current_n = bfs.popleft()
-                    if grid[current_m][current_n] >= q:
-                        continue
-                    count +=1
-                    for dir_r, dir_c in directions:
-                        new_m,new_n = current_m + dir_r, current_n + dir_c
-                        if (0 <= new_m < m and 0 <= new_n < n and not visited[new_m][new_n] and grid[new_m][new_n] < q):
-                            bfs.append((new_m,new_n))
-                            visited[new_m][new_n] = True
+                current_m, current_n = bfs.popleft()
+                if grid[current_m][current_n] >= q:
+                    continue
+                count +=1
+                for dir_r, dir_c in directions:
+                    new_m,new_n = current_m + dir_r, current_n + dir_c
+                    if (0 <= new_m < m and 0 <= new_n < n and not visited[new_m][new_n] and grid[new_m][new_n] < q):
+                        bfs.append((new_m,new_n))
+                        visited[new_m][new_n] = True
             result[q_idx] = count
         return result
 
